@@ -1,0 +1,174 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #e0093d;
+  color: #252525;
+  font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  text-align: center;
+}
+
+.PageWidth {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.Container-light {
+  width: 100%;
+  background: white;
+}
+
+.Container-dark {
+  width: 100%;
+  background: #252525;
+  color: white;
+}
+
+.Header {
+  background: #e0093d;
+  color: white;
+  width: 100%;
+  height: 100vh;
+}
+
+.Footer {
+  background: #e0093d;
+  color: white;
+  width: 100%;
+  height: auto;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.ContentSection {
+  padding-left: 40px;
+  padding-right: 40px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+H2 {
+  font-size: 30px;
+  padding-top: 12vh;
+  padding-bottom: 12vh;
+  width: 100%;
+}
+
+.Highlighted {
+  float: left;
+  background: white;
+  height: 100%;
+  width: calc(100% / 12);
+}
+
+.Not_Highlighted {
+  float: left;
+  height: 100%;
+  width: calc(100% / 12);
+}
+
+.Row {
+  width: 100%;
+  height: 33.3333%;
+}
+
+.WhiteText {
+  color: white;
+}
+
+.DarkText {
+  color: #252525;
+}
+
+.RedText {
+  color: #e0093d;
+}
+
+.ContainerImages {
+  width: 100%;
+}
+
+#Logo {
+  margin: 0 auto;
+  width: calc(10vh * 4);
+  height: 100%;
+}
+
+#LogoRow {
+  height: 10vh;
+}
+
+.Gap {
+  height: 10vh;
+}
+
+#CanvasRow {
+  height: 46vh;
+  width: 100%;
+}
+
+#SketchCanvas {
+  height: 100%;
+  width: 46vh;
+  margin: auto;
+}
+
+#DescriptionRow {
+  width: 100%;
+  height: auto;
+  padding-top: 30px;
+  text-align: justify;
+}
+
+#IntroductionSummary {}
+
+.ExperimentImages {
+  width: 100%;
+  height: 100%;
+  border: 2;
+  border-radius: 5px;
+}
+
+#SocialRow {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+nav {
+  width: 100%;
+  font-size: 4vh;
+  background: #e0093d;
+}
+
+nav li {
+  display: inline-block;
+  padding: 0px 1vh 0px 1vh;
+}
+
+nav li a {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.Fixed {
+  position: fixed;
+  top: 0;
+  height: 10vh;
+  z-index: 1;
+}
+
+@media only screen and (min-width: 400px) {
+  .ContentSection {
+    max-width: 550px;
+    margin: 0 auto;
+  }
+}
