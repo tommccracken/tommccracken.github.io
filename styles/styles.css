@@ -133,6 +133,13 @@ H2 {
   border-radius: 5px;
 }
 
+.SocialImages {
+  width: 50px;
+  height: 50px;
+  margin-left: 20px;
+  margin-right: 20px;;
+}
+
 #SocialRow {
   padding-top: 30px;
   padding-bottom: 30px;
