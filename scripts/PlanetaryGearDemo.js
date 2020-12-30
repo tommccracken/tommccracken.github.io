@@ -25,11 +25,10 @@
 
 var canvas = document.getElementById("SketchCanvas");
 var ctx = canvas.getContext("2d");
-var planetary_gear = new PlanetaryGear(1, 28, 17, 1, -0.4, 0.4, 0.032, 5);
+var planetary_gear = new PlanetaryGear(1, 28, 17, 2, -0.5, 0, 0.032, 5);
 var draw_size = Math.min(canvas.width, canvas.height);
 var world_size = planetary_gear.ring.outer_diameter * 1.02;
 var draw_scaling_factor = draw_size / world_size;
-var debounce;
 var start_time = 0;
 var time_stamp;
 
@@ -73,7 +72,16 @@ function draw_basic_gear(cx, cy, gear) {
 function draw_basic_planetary_gear_set() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.lineWidth = Math.min(2, 2 * Math.max(1, Math.round(draw_size * 0.005)));
-  ctx.strokeStyle = 'white';
+  if (window.darkMode == undefined) {
+    ctx.strokeStyle = grey;
+  } else {
+    if (window.darkMode) {
+      ctx.strokeStyle = "white";
+    } else {
+      ctx.strokeStyle = "black";
+    }
+  }
+
   // Draw sun
   var cx = world_size / 2;
   var cy = world_size / 2;
@@ -109,25 +117,11 @@ function app_loop() {
 }
 
 function resize_canvas() {
-  var viewport_width = $(window).width();
-  var viewport_height = $(window).height();
-  var canvas_size = viewport_height * 0.46;
+  var viewport_height = document.getElementById("Header").offsetHeight;
+  var viewport_width = document.getElementById("Header").offsetWidth;
+  var canvas_size = Math.min(viewport_height * 0.5, viewport_width * 0.7);
   ctx.canvas.height = canvas_size;
   ctx.canvas.width = canvas_size;
-  draw_size = Math.min(canvas.width, canvas.height);
+  draw_size = canvas_size;
   draw_scaling_factor = draw_size / world_size;
 }
-
-//$(window).resize(function() {
-//  clearTimeout(debounce);
-//  debounce = setTimeout(function() {
-//    resize_canvas();
-//  }, 50);
-//});
-
-$(document).ready(function() {
-  resize_canvas();
-  draw_basic_planetary_gear_set();
-  start_time = get_time();
-  window.requestAnimationFrame(app_loop);
-});

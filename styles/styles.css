@@ -4,12 +4,26 @@
   padding: 0;
 }
 
+html{
+scroll-behavior: smooth;
+}
+
 body {
-  background: #e0093d;
-  color: #252525;
+  --background-colour: #e7e7e7;
+  --header-colour: rgb(255, 255, 255);
+  --font-colour: black;
+  --accent-colour: #e0093d;
   font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   text-align: center;
+  color: var(--font-colour);
+  transition: color 0.5s;
+}
+
+body.dark-theme{
+  --background-colour: #1f1f1f;
+  --header-colour:  #110d0d;
+  --font-colour: white;
 }
 
 .PageWidth {
@@ -17,31 +31,63 @@ body {
   margin: 0 auto;
 }
 
-.Container-light {
+.Container {
   width: 100%;
-  background: white;
-}
-
-.Container-dark {
-  width: 100%;
-  background: #252525;
-  color: white;
+  background-color: var(--background-colour);
+  transition: background-color 0.5s;
 }
 
 .Header {
-  background: #e0093d;
-  color: white;
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   height: 100vh;
+  z-index: 10;
+  background-color: var(--header-colour);
+  transition: background-color 0.5s;
+}
+
+nav {
+  width: 100%;
+  height: 55px; 
+  font-size: 22px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+  box-shadow: 0 8px 6px -6px rgba(0,0,0,0.5);
+  padding-top: 7px;
+  background-color: var(--header-colour);
+  transition: background-color 0.5s;
+}
+
+nav li {
+  display: inline-block;
+  padding: 0px 10px 0px 10px;
+}
+
+nav li a {
+  color: var(--font-colour);
+  transition: color 0.5s;
+  font-weight: bold;
+  text-decoration: none;
+  outline: 0;
+}
+
+li:hover {
+  opacity: 0.8;
+  cursor: pointer;
 }
 
 .Footer {
-  background: #e0093d;
-  color: white;
+  color: var(--font-colour);
   width: 100%;
-  height: auto;
-  padding-top: 20px;
   padding-bottom: 20px;
+  padding-top: 40px;
+  background-color: var(--background-colour);
+  transition: background-color 0.5s;
 }
 
 .ContentSection {
@@ -52,40 +98,16 @@ body {
 }
 
 H2 {
-  font-size: 30px;
-  padding-top: 12vh;
-  padding-bottom: 12vh;
+  font-size: 25px;
+  padding-top: 70px;
+  padding-bottom: 30px;
   width: 100%;
-}
-
-.Highlighted {
-  float: left;
-  background: white;
-  height: 100%;
-  width: calc(100% / 12);
-}
-
-.Not_Highlighted {
-  float: left;
-  height: 100%;
-  width: calc(100% / 12);
-}
-
-.Row {
-  width: 100%;
-  height: 33.3333%;
-}
-
-.WhiteText {
-  color: white;
-}
-
-.DarkText {
-  color: #252525;
+  /*color: #e0093d;*/
+  text-decoration: underline;
 }
 
 .RedText {
-  color: #e0093d;
+  color: var(--accent-colour);
 }
 
 .ContainerImages {
@@ -93,84 +115,55 @@ H2 {
 }
 
 #Logo {
-  margin: 0 auto;
-  width: calc(10vh * 4);
   height: 100%;
 }
 
 #LogoRow {
-  height: 10vh;
+  height: 10%;
 }
 
 .Gap {
-  height: 10vh;
-}
-
-#CanvasRow {
-  height: 46vh;
-  width: 100%;
-}
+  height: 10%;
+};
 
 #SketchCanvas {
   height: 100%;
-  width: 46vh;
-  margin: auto;
 }
 
 #DescriptionRow {
   width: 100%;
-  height: auto;
-  padding-top: 30px;
   text-align: justify;
 }
-
-#IntroductionSummary {}
 
 .ExperimentImages {
   width: 100%;
   height: 100%;
   border: 2;
   border-radius: 5px;
+  box-shadow: 0 0 5px 2Px  rgba(0,0,0,0.2);
+  z-index: 5;
 }
 
 .SocialImages {
   width: 50px;
   height: 50px;
   margin-left: 20px;
-  margin-right: 20px;;
+  margin-right: 20px;
+  stroke: var(--accent-colour);
+  fill: none;
+}
+
+.SocialImages:hover{
+  opacity: 0.8;
+
 }
 
 #SocialRow {
   padding-top: 30px;
-  padding-bottom: 30px;
 }
 
-nav {
-  width: 100%;
-  font-size: 4vh;
-  background: #e0093d;
-}
-
-nav li {
-  display: inline-block;
-  padding: 0px 1vh 0px 1vh;
-}
-
-nav li a {
-  color: white;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
-}
-
-.Fixed {
+.Sticky{
   position: fixed;
-  top: 0;
-  height: 10vh;
-  z-index: 1;
 }
 
 @media only screen and (min-width: 400px) {
